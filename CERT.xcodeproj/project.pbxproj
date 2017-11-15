@@ -14,6 +14,10 @@
 		3F10B5231FBB94D500983203 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F10B5211FBB94D500983203 /* LaunchScreen.storyboard */; };
 		3F10B52E1FBB94D500983203 /* CERTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10B52D1FBB94D500983203 /* CERTTests.swift */; };
 		3F10B5391FBB94D500983203 /* CERTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10B5381FBB94D500983203 /* CERTUITests.swift */; };
+		3F10B5471FBB9B1200983203 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10B5461FBB9B1200983203 /* LoginViewController.swift */; };
+		3F10B5491FBB9B8900983203 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10B5481FBB9B8900983203 /* RegisterViewController.swift */; };
+		3F10B54B1FBB9B9800983203 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10B54A1FBB9B9800983203 /* RecoverViewController.swift */; };
+		3F10B54D1FBBE3A500983203 /* DisasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10B54C1FBBE3A500983203 /* DisasterTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		3F10B5341FBB94D500983203 /* CERTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CERTUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F10B5381FBB94D500983203 /* CERTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CERTUITests.swift; sourceTree = "<group>"; };
 		3F10B53A1FBB94D500983203 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F10B5461FBB9B1200983203 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3F10B5481FBB9B8900983203 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		3F10B54A1FBB9B9800983203 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
+		3F10B54C1FBBE3A500983203 /* DisasterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisasterTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,10 @@
 				3F10B5181FBB94D500983203 /* AppDelegate.swift */,
 				3F10B51A1FBB94D500983203 /* ViewController.swift */,
 				3F10B51C1FBB94D500983203 /* Main.storyboard */,
+				3F10B54C1FBBE3A500983203 /* DisasterTableViewController.swift */,
+				3F10B5461FBB9B1200983203 /* LoginViewController.swift */,
+				3F10B5481FBB9B8900983203 /* RegisterViewController.swift */,
+				3F10B54A1FBB9B9800983203 /* RecoverViewController.swift */,
 				3F10B51F1FBB94D500983203 /* Assets.xcassets */,
 				3F10B5211FBB94D500983203 /* LaunchScreen.storyboard */,
 				3F10B5241FBB94D500983203 /* Info.plist */,
@@ -259,8 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F10B5471FBB9B1200983203 /* LoginViewController.swift in Sources */,
 				3F10B51B1FBB94D500983203 /* ViewController.swift in Sources */,
 				3F10B5191FBB94D500983203 /* AppDelegate.swift in Sources */,
+				3F10B54B1FBB9B9800983203 /* RecoverViewController.swift in Sources */,
+				3F10B54D1FBBE3A500983203 /* DisasterTableViewController.swift in Sources */,
+				3F10B5491FBB9B8900983203 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QN7QS2WJH3;
 				INFOPLIST_FILE = CERT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = student.CERT;
@@ -441,6 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QN7QS2WJH3;
 				INFOPLIST_FILE = CERT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = student.CERT;
