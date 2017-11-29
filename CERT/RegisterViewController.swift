@@ -78,7 +78,14 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func register(_ sender: Any) {
+        let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+            NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
