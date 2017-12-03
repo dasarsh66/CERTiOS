@@ -16,26 +16,30 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var RegisterPassword: UITextField!
     @IBOutlet weak var RegisterRePassword: UITextField!
     @IBOutlet weak var RegisterRegister: UIButton!
-    
     @IBAction func RegisterGoBack(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-        self.dismiss(animated: true, completion: nil)
         
+        self.dismiss(animated: true, completion: nil)
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
-        
-        let parameters = ["id": 13, "name": "jack"] as [String : Any]
+        let parameters = ["FirstName": RegisterFirstName.text as Any, "LastName": RegisterLastName.text as Any, "Contact":Int(RegisterContact.text!) as Any, "Password":RegisterPassword.text as Any] as [String : Any]
         
         //create the url with URL
-        let url = URL(string: "https://api.mlab.com/api/1/databases/cert/collections/my-coll?apiKey=F4GTF2uFESKCFCx7q87ZtFmrhtL-A1-j")! //change the url
+        let url = URL(string: "https://api.mlab.com/api/1/databases/cert/collections/my-coll?apiKey=F4GTF2uFESKCFCx7q87ZtFmrhtL-A1-j")!
+            //change the url
+        
         //create the session object
         let session = URLSession.shared
+        
         //now create the URLRequest object using the url object
         var request = URLRequest(url: url)
+        
         request.httpMethod = "POST" //set http method as POST
         
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-        } catch let error {
+        }
+            
+        catch let error
+        {
             print(error.localizedDescription)
         }
         

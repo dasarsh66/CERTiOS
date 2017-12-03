@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Disaster response form-->
+        <!--Disasters-->
         <scene sceneID="CVu-je-fZX">
             <objects>
                 <tableViewController id="T9r-Gb-0re" customClass="DisasterTableViewController" customModule="CERT" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="i4s-Ci-Sd0">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="disasterCell" id="i4s-Ci-Sd0">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i4s-Ci-Sd0" id="f9z-aC-ppF">
@@ -32,7 +32,7 @@
                             <outlet property="delegate" destination="T9r-Gb-0re" id="sfN-ka-nhD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Disaster response form" id="i4g-Rf-QUv"/>
+                    <navigationItem key="navigationItem" title="Disasters" id="i4g-Rf-QUv"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2MK-zQ-Qqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
