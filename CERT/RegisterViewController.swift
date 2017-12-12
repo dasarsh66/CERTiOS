@@ -8,19 +8,47 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
 
-    @IBOutlet weak var RegisterFirstName: UITextField!
-    @IBOutlet weak var RegisterLastName: UITextField!
-    @IBOutlet weak var RegisterContact: UITextField!
-    @IBOutlet weak var RegisterPassword: UITextField!
-    @IBOutlet weak var RegisterRePassword: UITextField!
-    @IBOutlet weak var RegisterRegister: UIButton!
-    @IBAction func RegisterGoBack(_ sender: Any) {
+
+class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    let ranks = ["A", "B", "C"]
+    var selectedRank = ""
+    let databaseManagerInstance : DatabaseManager = DatabaseManager()
+  
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return ranks.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return ranks[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerView.isHidden = false
+        selectedRank = ranks[row]
+    }
+    
+    
+    
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var contact: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var confirmPassword: UITextField!
+    @IBOutlet weak var registerBTNoutlet: UIButton!
+    @IBOutlet weak var rankPV: UIPickerView!
+    
+
+    @IBAction func goBack(_ sender: Any) {
+       
         
-        self.dismiss(animated: true, completion: nil)
+       /* self.dismiss(animated: true, completion: nil)
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
-        let parameters = ["FirstName": RegisterFirstName.text as Any, "LastName": RegisterLastName.text as Any, "Contact":Int(RegisterContact.text!) as Any, "Password":RegisterPassword.text as Any] as [String : Any]
+        let parameters = ["FirstName": firstName.text as Any, "LastName": lastName.text as Any, "Contact":Int(contact.text!) as Any, "Password":password.text as Any] as [String : Any]
         
         //create the url with URL
         let url = URL(string: "https://api.mlab.com/api/1/databases/cert/collections/my-coll?apiKey=F4GTF2uFESKCFCx7q87ZtFmrhtL-A1-j")!
@@ -28,14 +56,16 @@ class RegisterViewController: UIViewController {
         
         //create the session object
         let session = URLSession.shared
-        
+
         //now create the URLRequest object using the url object
         var request = URLRequest(url: url)
         
         request.httpMethod = "POST" //set http method as POST
         
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+        do
+        {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+             // pass dictionary to nsdata object and set it as request body
         }
             
         catch let error
@@ -67,12 +97,14 @@ class RegisterViewController: UIViewController {
                 print(error.localizedDescription)
             }
         })
-        task.resume()
+        task.resume()*/
     
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        rankPV.dataSource = self
+        rankPV.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -83,11 +115,15 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func register(_ sender: Any) {
+        
+        databaseManagerInstance.register(firstName: firstName.text!, lastName: lastName.text!, contact: contact.text!, password: password.text!, confirmPassword: confirmPassword.text!, rank: selectedRank)
+        
         let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
             NSLog("The \"OK\" alert occured.")
         }))
         self.present(alert, animated: true, completion: nil)
+        
     }
     
     /*

@@ -9,24 +9,40 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    var databaseManagerInstance:DatabaseManager = DatabaseManager()
     
     @IBOutlet weak var LoginContact: UITextField!
     @IBOutlet weak var LoginPassword: UITextField!
-    
     @IBAction func LoginLogin(_ sender: Any) {
         
-        shouldPerformSegue(withIdentifier: "AuthenticateSegue", sender: self)
-       // shouldPerformSegue(withIdentifier: "AuthenticateSegue", sender: self)
+        if shouldPerformSegue(withIdentifier: "loginSegue", sender: self) {
+            performSegue(withIdentifier: "loginSegue", sender: self)
+        }
+        else {
+            let alertController = UIAlertController(title: "Message", message: "Failed", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
+    
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-    
         
-        
+        if identifier == "loginSegue" {
+             databaseManagerInstance.loginUser(userPassword: LoginPassword.text!)
+            return true
+        }
+        else if identifier == "registerationSegue"{
+            return true
+        }
+        else if identifier == "forgotPassSegue" {
+            return true
+        }
+        else {
+            return true
+        }
     
-    return true
-    }
-    
-    
+        }
     override func viewDidLoad() {
         super.viewDidLoad()
 
