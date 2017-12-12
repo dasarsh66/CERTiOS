@@ -29,8 +29,9 @@ class LoginViewController: UIViewController {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
         if identifier == "loginSegue" {
-             databaseManagerInstance.loginUser(userPassword: LoginPassword.text!)
-            return true
+            //Returns true if credentials matches with credentials in DB
+            return databaseManagerInstance.loginUser(userPassword: LoginPassword.text!)
+            //return true
         }
         else if identifier == "registerationSegue"{
             return true

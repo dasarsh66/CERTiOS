@@ -20,7 +20,7 @@ class DatabaseManager {
     }
     
     
-    
+    //Feteches Data from DB and convveerts to Swift Arrays
     func fetchData(userPassword:String) -> String {
         var passString:String=""
         var json:NSArray = []
